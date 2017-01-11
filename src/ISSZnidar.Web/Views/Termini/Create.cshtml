@@ -1,0 +1,55 @@
+﻿@model ISSZnidar.Web.Models.Termin
+
+@{
+    ViewData["Title"] = "Ustvari nov termin";
+}
+
+<h2>Nov zapis</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Termin</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="PredmetId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="PredmetId" class ="form-control" asp-items="ViewBag.PredmetId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Zacetek" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Zacetek" class="form-control" />
+                <span asp-validation-for="Zacetek" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Konec" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Konec" class="form-control" />
+                <span asp-validation-for="Konec" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Opis" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Shrani" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Nazaj na seznam</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

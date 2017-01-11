@@ -1,0 +1,28 @@
+﻿@model ISSZnidar.Web.Models.Predmet
+
+@{
+    ViewData["Title"] = "Brisanje";
+}
+
+<h2>Brisanje</h2>
+
+<h3>Ali ste prepričani, da želite odstraniti ta zapis?</h3>
+<div>
+    <h4>Predmet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <div class="form-actions no-color">
+            <input type="submit" value="Izbriši" class="btn btn-default" /> |
+            <a asp-action="Index">Nazaj na seznam</a>
+        </div>
+    </form>
+</div>

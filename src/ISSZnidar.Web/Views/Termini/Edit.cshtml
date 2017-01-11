@@ -1,0 +1,57 @@
+﻿@model ISSZnidar.Web.Models.Termin
+
+@{
+    ViewData["Title"] = "Urejanje";
+}
+
+<h2>Uredi</h2>
+
+<form asp-action="Edit">
+    <div class="form-horizontal">
+        <h4>Termin</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="TerminId" />
+        <div class="form-group">
+            <label asp-for="PredmetId" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="PredmetId" class="form-control" asp-items="ViewBag.PredmetId"></select>
+                <span asp-validation-for="PredmetId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Zacetek" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Zacetek" class="form-control" />
+                <span asp-validation-for="Zacetek" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Konec" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Konec" class="form-control" />
+                <span asp-validation-for="Konec" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Opis" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Opis" class="form-control" />
+                <span asp-validation-for="Opis" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Shrani" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Nazaj na seznam</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

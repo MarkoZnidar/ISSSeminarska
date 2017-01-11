@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ISSZnidar.Web.Models.Termin>
+
+@{
+    ViewData["Title"] = "Seznam";
+}
+
+<h2>Seznam terminov</h2>
+
+<p>
+    <a asp-action="Create">Dodaj nov termin</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Zacetek)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Konec)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Opis)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Predmet)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zacetek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Konec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Predmet.Naziv)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TerminId">Uredi</a> |
+                <a asp-action="Details" asp-route-id="@item.TerminId">Podrobnosti</a> |
+                <a asp-action="Delete" asp-route-id="@item.TerminId">Izbriši</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
